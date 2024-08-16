@@ -11,17 +11,6 @@ services:
     command: -config.file=/etc/loki-config.yaml
     networks:
       - loki
-  promtail:
-    image: grafana/promtail:latest
-    container_name: promtail
-    volumes:
-      - ./promtail/promtail-config.yaml:/etc/promtail-config.yaml
-      - /var/logs/application:/var/logs
-    command: -config.file=/etc/promtail-config.yaml
-    depends_on:
-      - loki
-    networks:
-      - loki
   grafana:
     image: grafana/grafana
     container_name: grafana
