@@ -15,15 +15,13 @@ clients:
 scrape_configs:
   - job_name: spring-boot-logs
     static_configs:
-      - targets:
-          - localhost
+      - targets: ['localhost']
         labels:
           job: spring-boot-logs
-          __path__: /var/logs/springboot/*.log
+          __path__: /var/logs/application/springboot/*.log
   - job_name: nestjs-logs
     static_configs:
-      - targets:
-          - localhost
+      - targets: ['localhost']
         labels:
           job: nestjs-logs
-          __path__: /var/logs/nestjs/*.log
+          __path__: /var/logs/application/nestjs/*.log
